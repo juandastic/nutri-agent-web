@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Color Palette from Logo - Using HSL format for Tailwind */
+:root {
+    --background: 0 0% 100%;
+    --foreground: 150 40% 20%;
+    --card: 0 0% 100%;
+    --card-foreground: 150 40% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 150 40% 20%;
+    --primary: 85 60% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 190 60% 55%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 85 30% 95%;
+    --muted-foreground: 150 20% 45%;
+    --accent: 85 65% 65%;
+    --accent-foreground: 150 40% 20%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 85 25% 88%;
+    --input: 85 25% 88%;
+    --ring: 85 60% 55%;
+    --radius: 1rem;
+    
+    /* Custom gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(85 60% 55%) 0%, hsl(190 60% 55%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(85 70% 97%) 0%, hsl(190 60% 97%) 100%);
+    
+    /* Custom shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(85 60% 55% / .15);
+    --shadow-medium: 0 8px 30px -6px hsl(85 60% 55% / .25);
+    
+    /* Custom transitions */
+    --transition-smooth: all .3s cubic-bezier(.4, 0, .2, 1);
+    
+    /* Sidebar variables (for future use) */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+}
+
+.dark {
+    --background: 150 40% 8%;
+    --foreground: 85 30% 95%;
+    --card: 150 35% 12%;
+    --card-foreground: 85 30% 95%;
+    --popover: 150 35% 12%;
+    --popover-foreground: 85 30% 95%;
+    --primary: 85 60% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 190 60% 55%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 150 30% 18%;
+    --muted-foreground: 85 20% 65%;
+    --accent: 85 65% 45%;
+    --accent-foreground: 85 30% 95%;
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 150 25% 22%;
+    --input: 150 25% 22%;
+    --ring: 85 60% 55%;
+    --gradient-primary: linear-gradient(135deg, hsl(85 60% 45%) 0%, hsl(190 60% 45%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(150 40% 10%) 0%, hsl(150 35% 12%) 100%);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+}
+
+* {
+    border-color: hsl(var(--border));
+}
+
+body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+}
+
+/* Legal Pages Styles */
+.legal-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.legal-page h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: hsl(var(--foreground));
+}
+
+.legal-page h2 {
+    font-size: 1.8rem;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: hsl(var(--foreground));
+}
+
+.legal-page h3 {
+    font-size: 1.4rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: hsl(var(--foreground));
+}
+
+.legal-page p {
+    margin-bottom: 15px;
+    line-height: 1.8;
+    color: hsl(var(--muted-foreground));
+}
+
+.legal-page ul, .legal-page ol {
+    margin-left: 30px;
+    margin-bottom: 20px;
+    color: hsl(var(--muted-foreground));
+}
+
+.legal-page li {
+    margin-bottom: 10px;
+    line-height: 1.8;
+}
+
+.legal-page a {
+    color: hsl(var(--primary));
+    text-decoration: none;
+}
+
+.legal-page a:hover {
+    text-decoration: underline;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 30px;
+    color: hsl(var(--primary));
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.last-updated {
+    font-style: italic;
+    color: hsl(var(--muted-foreground));
+    margin-bottom: 30px;
+}
