@@ -4,7 +4,7 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'NutriAgent Bot - AI-Powered Nutrition Tracking on Telegram',
   description: 'Track your nutrition effortlessly with NutriAgent Bot on Telegram. Send photos or chat about meals, and let AI record everything in your Google Sheets automatically.',
-  author: 'NutriAgent Bot',
+  authors: [{ name: 'NutriAgent Bot' }],
   keywords: ['nutrition tracking', 'telegram bot', 'AI nutrition', 'calorie counter', 'meal tracker', 'google sheets integration', 'food diary'],
   openGraph: {
     title: 'NutriAgent Bot - AI-Powered Nutrition Tracking',
