@@ -15,11 +15,11 @@ export default function PrivacyPage() {
         
         <h1>Privacy Policy</h1>
         
-        <p className="last-updated">Last Updated: December 2024</p>
+        <p className="last-updated">Last Updated: November 2025</p>
         
         <section>
           <h2>1. Introduction</h2>
-          <p>NutriAgent Bot ("we," "us," or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our Telegram bot service (the "Service").</p>
+          <p>NutriAgent Bot ("we," "us," or "our") is a personal project operated by an individual developer (the "Operator"). We are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our Telegram bot service (the "Service").</p>
           <p>By using NutriAgent Bot, you consent to the data practices described in this Privacy Policy. Please read this policy carefully to understand our practices regarding your personal information.</p>
         </section>
         
@@ -81,6 +81,7 @@ export default function PrivacyPage() {
             <li>Understand natural language queries about nutrition</li>
           </ul>
           <p>This processing may involve sending your messages and images to third-party AI service providers (such as OpenAI, Google AI, or similar services) for analysis. These providers are bound by their own privacy policies and terms of service.</p>
+          <p>We do not use your content to train our own machine learning models. Where available, we configure third-party providers so that content processed via their APIs is not used to train their models beyond what is necessary to provide the Service.</p>
           
           <h3>3.3 Service Improvement</h3>
           <ul>
@@ -147,8 +148,8 @@ export default function PrivacyPage() {
           <h3>5.2 Legal Requirements</h3>
           <p>We may disclose your information if required to do so by law or in response to valid requests by public authorities (e.g., a court or government agency).</p>
           
-          <h3>5.3 Business Transfers</h3>
-          <p>In the event of a merger, acquisition, or sale of assets, your information may be transferred as part of that transaction. We will notify you of any such change in ownership or control of your personal information.</p>
+          <h3>5.3 Project Transfer</h3>
+          <p>If this personal project is ever transferred to another maintainer, your information may be transferred as part of that change. We will notify you of any such change in ownership or control of your personal information.</p>
           
           <h3>5.4 What We Do NOT Share</h3>
           <p>We do NOT:</p>
@@ -163,13 +164,12 @@ export default function PrivacyPage() {
           <h2>6. Data Retention</h2>
           
           <h3>6.1 Messages and Images</h3>
-          <p>We may temporarily retain your messages and images for:</p>
+          <p>We may temporarily retain your messages and images only for:</p>
           <ul>
             <li>Processing and providing the Service</li>
-            <li>Improving our AI models and accuracy</li>
             <li>Troubleshooting and support purposes</li>
           </ul>
-          <p>We aim to delete or anonymize this data after it is no longer needed for these purposes, typically within 90 days of processing.</p>
+          <p>Any transient copies are deleted after the above purposes are fulfilled; in any case, we aim to delete or anonymize such data within 90 days of processing.</p>
           
           <h3>6.2 Google Sheets Data</h3>
           <p>Nutrition data stored in your Google Sheets remains in your Google Drive until you choose to delete it. We do not delete this data unless you explicitly request it or revoke access to your Google account.</p>
@@ -313,5 +313,7 @@ export default function PrivacyPage() {
     </>
   )
 }
+
+
 
 

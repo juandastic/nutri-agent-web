@@ -15,12 +15,12 @@ export default function TermsPage() {
         
         <h1>Terms and Conditions</h1>
         
-        <p className="last-updated">Last Updated: December 2024</p>
+        <p className="last-updated">Last Updated: November 2025</p>
         
         <section>
           <h2>1. Acceptance of Terms</h2>
           <p>By accessing and using NutriAgent Bot (the "Service"), you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.</p>
-          <p>NutriAgent Bot is a Telegram bot service that provides nutrition tracking functionality through natural language conversations and image recognition. The Service is operated by the NutriAgent Bot team ("we," "us," or "our").</p>
+          <p>NutriAgent Bot is a Telegram bot service that provides nutrition tracking functionality through natural language conversations and image recognition. The Service is operated by an individual developer ("we," "us," or "our") as a personal project and is not a registered company.</p>
         </section>
         
         <section>
@@ -187,5 +187,7 @@ export default function TermsPage() {
     </>
   )
 }
+
+
 
 
