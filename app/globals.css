@@ -160,3 +160,12 @@ body {
     color: hsl(var(--muted-foreground));
     margin-bottom: 30px;
 }
+
+.social-links {
+    list-style: none;
+    margin-left: 0;
+}
+
+.social-links li {
+    margin-bottom: 12px;
+}

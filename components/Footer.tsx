@@ -28,6 +28,11 @@ export default function Footer() {
                   Home
                 </Link>
               </li>
+              <li>
+                <Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">
+                  About
+                </Link>
+              </li>
             </ul>
           </div>
           <div className="space-y-4">
