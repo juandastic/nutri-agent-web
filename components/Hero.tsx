@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Send } from "lucide-react";
+import { Send, Smartphone } from "lucide-react";
 import Image from "next/image";
 import nutriLogo from "@/assets/nutribotagent-logo.png";
 
@@ -25,9 +25,9 @@ const Hero = () => {
                 className="bg-gradient-primary text-primary-foreground hover:opacity-90 transition-all shadow-medium"
                 asChild
               >
-                <a href="https://t.me/nutri_agent_bot" target="_blank" rel="noopener noreferrer">
+                <a href="/chat">
                   <Send className="mr-2 h-5 w-5" />
-                  Start on Telegram
+                  Try it now
                 </a>
               </Button>
               <Button 
@@ -36,8 +36,9 @@ const Hero = () => {
                 className="border-2"
                 asChild
               >
-                <a href="#features">
-                  Learn More
+                <a href="https://t.me/nutri_agent_bot" target="_blank" rel="noopener noreferrer">
+                  <Smartphone className="mr-2 h-5 w-5" />
+                  Use on Telegram
                 </a>
               </Button>
             </div>
