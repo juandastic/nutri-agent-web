@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Send, Smartphone } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import nutriLogo from "@/assets/nutribotagent-logo.png";
 
 const Hero = () => {
@@ -20,15 +21,15 @@ const Hero = () => {
               and let AI track everything in your own Google Sheets—effortlessly.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="bg-gradient-primary text-primary-foreground hover:opacity-90 transition-all shadow-medium"
                 asChild
               >
-                <a href="/chat">
+                <Link href="/chat">
                   <Send className="mr-2 h-5 w-5" />
                   Try it now
-                </a>
+                </Link>
               </Button>
               <Button 
                 size="lg" 

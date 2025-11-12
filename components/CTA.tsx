@@ -1,4 +1,5 @@
 import { Send, Smartphone } from "lucide-react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 const CTA = () => {
@@ -19,10 +20,10 @@ const CTA = () => {
                 className="bg-white text-foreground hover:bg-white/90 shadow-lg"
                 asChild
               >
-                <a href="/chat">
+                <Link href="/chat">
                   <Send className="mr-2 h-5 w-5" />
                   Try it now
-                </a>
+                </Link>
               </Button>
               <Button
                 size="lg"
