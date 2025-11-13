@@ -1,4 +1,13 @@
 import type { Metadata } from 'next'
+import {
+  ClerkProvider,
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from '@clerk/nextjs'
+import { Button } from '@/components/ui/button'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -32,9 +41,53 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className="relative min-h-screen bg-background text-foreground">
+          <header className="fixed top-6 right-6 z-50">
+            <div className="flex items-center gap-3 rounded-full border border-white/60 bg-white/90 px-4 py-2 shadow-medium backdrop-blur-md">
+              <SignedOut>
+                <div className="flex items-center gap-2">
+                  <SignInButton mode="modal">
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="border-primary/30 bg-white/80 text-primary shadow-soft hover:bg-white"
+                    >
+                      Log in
+                    </Button>
+                  </SignInButton>
+                  <SignUpButton mode="modal">
+                    <Button size="sm" className="shadow-soft">
+                      Create account
+                    </Button>
+                  </SignUpButton>
+                </div>
+              </SignedOut>
+              <SignedIn>
+                <div className="flex items-center gap-3">
+                  <span className="hidden text-sm font-medium text-muted-foreground md:inline">
+                    Welcome back!
+                  </span>
+                  <UserButton
+                    afterSignOutUrl="/"
+                    appearance={{
+                      elements: {
+                        userButtonAvatarBox:
+                          'border-2 border-primary/40 shadow-soft',
+                        userButtonOuterIdentifier:
+                          'text-sm text-muted-foreground',
+                      },
+                    }}
+                  />
+                </div>
+              </SignedIn>
+            </div>
+          </header>
+          <main className="min-h-screen">{children}</main>
+        </body>
+      </html>
+    </ClerkProvider>
   )
 }
 

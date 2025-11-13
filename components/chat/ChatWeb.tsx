@@ -19,6 +19,7 @@ const ChatWeb = () => {
     handleFilesAdded,
     handleAttachClick,
     handleRemoveAttachment,
+    handleSendShortcut,
   } = useChatWeb();
 
   return (
@@ -39,6 +40,7 @@ const ChatWeb = () => {
               fileInputRef={fileInputRef}
               textareaRef={textareaRef}
               onSubmit={handleSubmit}
+              onSendShortcut={handleSendShortcut}
               onInputChange={handleInputChange}
               onFilesAdded={handleFilesAdded}
               onAttachClick={handleAttachClick}

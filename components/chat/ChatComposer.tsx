@@ -11,6 +11,7 @@ type ChatComposerProps = {
   fileInputRef: RefObject<HTMLInputElement | null>;
   textareaRef: RefObject<HTMLTextAreaElement | null>;
   onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+  onSendShortcut: () => void;
   onInputChange: (value: string) => void;
   onFilesAdded: (files: FileList | null) => void;
   onAttachClick: () => void;
@@ -24,6 +25,7 @@ const ChatComposer = ({
   fileInputRef,
   textareaRef,
   onSubmit,
+  onSendShortcut,
   onInputChange,
   onFilesAdded,
   onAttachClick,
@@ -83,6 +85,12 @@ const ChatComposer = ({
             ref={textareaRef}
             value={inputValue}
             onChange={(event) => onInputChange(event.target.value)}
+            onKeyDown={(event) => {
+              if (event.key === "Enter" && !event.shiftKey) {
+                event.preventDefault();
+                onSendShortcut();
+              }
+            }}
             placeholder="Describe your meal or upload a photo..."
             rows={1}
             className="w-full resize-none rounded-3xl bg-transparent px-5 py-3 text-sm text-foreground focus:outline-none"

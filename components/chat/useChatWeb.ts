@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useClerk, useUser } from "@clerk/nextjs";
 import { createTimestamp, formatBytes } from "@/lib/chat/utils";
 import type {
   ChatAttachment,
@@ -16,9 +17,48 @@ const initialWelcomeMessage: ChatMessage = {
   timestamp: createTimestamp(),
 };
 
-const BOT_RESPONSE = "hello world";
+const createBotResponse = (fullName?: string | null, userId?: string) => {
+  if (fullName || userId) {
+    return `Hey${fullName ? ` ${fullName}` : ""} 👋. Your user ID is ${
+      userId ?? "unknown"
+    }.`;
+  }
+  return "Hey there 👋. Log in to personalize your experience.";
+};
+
+const signInCommands = new Set(["login", "log in", "sign in"]);
+const signUpCommands = new Set([
+  "signup",
+  "sign up",
+  "sign-up",
+  "register",
+]);
+
+type AuthIntent = "signIn" | "signUp";
+
+const detectAuthIntent = (value: string): AuthIntent | null => {
+  const normalized = value.trim().toLowerCase();
+
+  if (!normalized) {
+    return null;
+  }
+
+  if (signInCommands.has(normalized)) {
+    return "signIn";
+  }
+
+  if (signUpCommands.has(normalized)) {
+    return "signUp";
+  }
+
+  return null;
+};
 
 const useChatWeb = () => {
+  const { openSignIn, openSignUp } = useClerk();
+  const { user } = useUser();
+  const fullName = user?.fullName || user?.firstName || null;
+  const userId = user?.id;
   const [messages, setMessages] = useState<ChatMessage[]>([initialWelcomeMessage]);
   const [inputValue, setInputValue] = useState("");
   const [pendingAttachments, setPendingAttachments] = useState<ChatAttachment[]>(
@@ -119,28 +159,61 @@ const useChatWeb = () => {
     []
   );
 
+  const submitMessage = useCallback(() => {
+    const trimmed = inputValue.trim();
+
+    if (!trimmed && pendingAttachments.length === 0) {
+      return;
+    }
+
+    const authIntent = detectAuthIntent(trimmed);
+
+    addMessage("user", trimmed, pendingAttachments);
+
+    setInputValue("");
+    setPendingAttachments([]);
+
+    if (authIntent && pendingAttachments.length === 0) {
+      if (authIntent === "signIn") {
+        void openSignIn();
+      } else {
+        void openSignUp();
+      }
+      setIsSending(false);
+      return;
+    }
+
+    setIsSending(true);
+
+    if (botReplyTimeoutRef.current) {
+      clearTimeout(botReplyTimeoutRef.current);
+    }
+
+    botReplyTimeoutRef.current = setTimeout(() => {
+      addMessage("bot", createBotResponse(fullName, userId));
+      setIsSending(false);
+    }, 900);
+  }, [
+    addMessage,
+    fullName,
+    inputValue,
+    openSignIn,
+    openSignUp,
+    pendingAttachments,
+    userId,
+  ]);
+
   const handleSubmit = useCallback(
     (event?: React.FormEvent<HTMLFormElement>) => {
       event?.preventDefault();
-      const trimmed = inputValue.trim();
-
-      if (!trimmed && pendingAttachments.length === 0) {
-        return;
-      }
-
-      addMessage("user", trimmed, pendingAttachments);
-
-      setInputValue("");
-      setPendingAttachments([]);
-      setIsSending(true);
-
-      botReplyTimeoutRef.current = setTimeout(() => {
-        addMessage("bot", BOT_RESPONSE);
-        setIsSending(false);
-      }, 900);
+      submitMessage();
     },
-    [addMessage, inputValue, pendingAttachments]
+    [submitMessage]
   );
+
+  const handleSendShortcut = useCallback(() => {
+    submitMessage();
+  }, [submitMessage]);
 
   const handleInputChange = useCallback((value: string) => {
     setInputValue(value);
@@ -156,6 +229,7 @@ const useChatWeb = () => {
     chatContainerRef,
     handleInputChange,
     handleSubmit,
+    handleSendShortcut,
     handleFilesAdded,
     handleAttachClick,
     handleRemoveAttachment,
