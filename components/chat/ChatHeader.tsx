@@ -4,14 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useUser } from "@clerk/nextjs";
 import logo from "@/assets/nutribotagent-logo.png";
 
 const ChatHeader = () => {
-  const { user } = useUser();
-  const fullName = user?.fullName || user?.firstName || "Usuario";
-  const userId = user?.id;
-
   return (
     <header className="flex items-center justify-between gap-4 rounded-2xl bg-white/70 backdrop-blur-sm border border-white/40 px-6 py-4 shadow-soft">
       <div className="flex items-center gap-3">
@@ -33,19 +28,6 @@ const ChatHeader = () => {
           <p className="text-sm text-muted-foreground">
             Track your nutrition with NutriAgent on the web.
           </p>
-          {user && (
-            <p className="mt-2 text-xs text-muted-foreground">
-              Signed in as{" "}
-              <span className="font-medium text-foreground">{fullName}</span>
-              {userId ? (
-                <>
-                  {" "}
-                  · ID:{" "}
-                  <span className="font-mono text-foreground/80">{userId}</span>
-                </>
-              ) : null}
-            </p>
-          )}
         </div>
       </div>
       <Button asChild variant="outline" size="sm" className="hidden sm:inline-flex">

@@ -54,7 +54,7 @@ export default function RootLayout({
                       variant="outline"
                       className="border-primary/30 bg-white/80 text-primary shadow-soft hover:bg-white"
                     >
-                      Log in
+                      Sign in
                     </Button>
                   </SignInButton>
                   <SignUpButton mode="modal">
