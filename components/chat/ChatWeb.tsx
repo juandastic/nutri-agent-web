@@ -30,7 +30,7 @@ const ChatWeb = () => {
   return (
     <div className="flex h-screen flex-col bg-gradient-hero overflow-hidden">
       <div className="container mx-auto flex h-full max-w-5xl flex-col px-4 py-6 md:py-12">
-        <div className="flex h-full flex-col gap-6">
+        <div className="flex h-full flex-col gap-4">
           <ChatHeader />
 
           <div className="relative flex flex-1 flex-col overflow-hidden rounded-3xl border border-primary/15 bg-white/80 shadow-medium backdrop-blur-xl">

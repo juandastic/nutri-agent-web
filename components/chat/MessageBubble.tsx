@@ -32,7 +32,7 @@ const MessageBubble = ({ message }: MessageBubbleProps) => {
       className={`flex w-full ${isUser ? "justify-end" : "justify-start"}`}
     >
       <div
-        className={`max-w-[70%] rounded-3xl border px-5 py-4 shadow-soft transition-all ${
+        className={`max-w-[90%] md:max-w-[70%] rounded-3xl border px-4 sm:px-5 py-3 sm:py-4 shadow-soft transition-all ${
           isUser
             ? "bg-gradient-primary text-primary-foreground rounded-br-lg border-primary/40"
             : "bg-white text-foreground rounded-bl-lg border-primary/15"

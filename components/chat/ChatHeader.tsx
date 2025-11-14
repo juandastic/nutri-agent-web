@@ -8,9 +8,9 @@ import logo from "@/assets/nutribotagent-logo.png";
 
 const ChatHeader = () => {
   return (
-    <header className="flex items-center justify-between gap-4 rounded-2xl bg-white/70 backdrop-blur-sm border border-white/40 px-6 py-4 shadow-soft">
-      <div className="flex items-center gap-3">
-        <div className="relative h-12 w-12 overflow-hidden rounded-2xl border border-primary/30 bg-gradient-primary shadow-soft">
+    <header className="flex items-center justify-between gap-2 sm:gap-4 rounded-2xl bg-white/70 backdrop-blur-sm border border-white/40 px-3 sm:px-6 py-3 sm:py-4 shadow-soft">
+      <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
+        <div className="relative h-10 w-10 sm:h-12 sm:w-12 flex-shrink-0 overflow-hidden rounded-2xl border border-primary/30 bg-gradient-primary shadow-soft">
           <Image
             src={logo}
             alt="NutriAgent logo"
@@ -20,17 +20,17 @@ const ChatHeader = () => {
             priority
           />
         </div>
-        <div>
-          <h1 className="text-sm uppercase tracking-[0.3em] text-primary/80">
+        <div className="min-w-0 flex-1">
+          <h1 className="text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.3em] text-primary/80 truncate">
             NutriAgent
           </h1>
-          <p className="text-2xl font-semibold text-foreground">Web Chat</p>
+          <p className="text-lg sm:text-2xl font-semibold text-foreground truncate">Web Chat</p>
           <p className="text-sm text-muted-foreground">
             Track your nutrition with NutriAgent on the web.
           </p>
         </div>
       </div>
-      <Button asChild variant="outline" size="sm" className="hidden sm:inline-flex">
+      <Button asChild variant="outline" size="sm" className="hidden sm:inline-flex flex-shrink-0">
         <Link href="/" aria-label="Back to home">
           <ArrowLeft className="h-4 w-4" />
           Back to home
@@ -40,7 +40,7 @@ const ChatHeader = () => {
         asChild
         variant="outline"
         size="sm"
-        className="sm:hidden"
+        className="sm:hidden flex-shrink-0"
       >
         <Link href="/" aria-label="Back to home">
           <ArrowLeft className="h-4 w-4" />
