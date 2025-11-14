@@ -12,7 +12,7 @@ const CTA = () => {
               Experience NutriAgent on the Web
             </h2>
             <p className="text-xl text-primary-foreground/90 max-w-2xl mx-auto">
-              Prueba nuestra demo web y comienza a registrar tus comidas ahora mismo. ¿Prefieres el móvil? Siempre puedes continuar en Telegram.
+              Try our web chat and start logging your meals right away. Prefer mobile? You can always chat with the bot on Telegram.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button
