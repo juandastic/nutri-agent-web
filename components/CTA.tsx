@@ -17,7 +17,7 @@ const CTA = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button
                 size="lg"
-                className="bg-white text-foreground hover:bg-white/90 shadow-lg"
+                className="bg-foreground text-background hover:bg-foreground/90 shadow-lg font-semibold"
                 asChild
               >
                 <Link href="/chat">
@@ -27,8 +27,7 @@ const CTA = () => {
               </Button>
               <Button
                 size="lg"
-                variant="outline"
-                className="border-white/60 text-white hover:bg-white/10"
+                className="bg-white/95 text-foreground hover:bg-white shadow-lg font-semibold border-2 border-white/20"
                 asChild
               >
                 <a
